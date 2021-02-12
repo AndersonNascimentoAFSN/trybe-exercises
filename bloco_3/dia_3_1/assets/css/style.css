@@ -1,24 +1,19 @@
-.super-mario {
-  max-width: 200px;
+.super-mario, .goomba, .bowser, .baloon {
   position: absolute;
+  max-width: 200px;
+}
+
+.super-mario {
   left: 280px;
- 
-  
 }
 
 .goomba {
-  max-width: 200px; 
-  position: absolute;
   top: 400px; 
-  
 }
 
 .bowser {
-  max-width: 200px;
-  position: absolute;
   left: 500px;
   top: 400px;
-  
 }
 
 .word {
@@ -29,11 +24,8 @@
 }
 
 .baloon {
-  max-width: 200px;
-  position: absolute;
   left: 285px;
   top: 375px;
-  
 }
 
 
