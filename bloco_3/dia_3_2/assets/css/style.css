@@ -1,0 +1,19 @@
+h1, p {
+  /* text-align: center; */
+}
+
+
+.best-sites__item, .main-reasons__item {
+  list-style: none;
+}
+
+.best-sites__item:hover {
+  background: green;
+  transition: linear 1s;
+}
+.best-sites__item:active {
+  transition: linear 1s;
+  color: white;
+}
+
+
