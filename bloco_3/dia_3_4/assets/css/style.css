@@ -51,9 +51,15 @@ li > em {
 4 - Na listagem de linguagens de programação, faça com que as 3 primeiras da lista possuam cor de fonte azul e, se alguma possuir "java*" no texto, utilize uma cor de fundo rosa.
 */
 
-.program-language li:nth-child(1), .program-language li:nth-child(2),.program-language li:nth-child(3)  {
+
+.program-language :is(li:nth-child(1), li:nth-child(2), li:nth-child(3))  {
   color: red;
 }
+
+
+/* .program-language li:nth-child(1), .program-language li:nth-child(2),.program-language li:nth-child(3)  { 
+  color: red;
+} */
 
 
 .program-language li:nth-child(2), .program-language li:nth-child(3)  {
