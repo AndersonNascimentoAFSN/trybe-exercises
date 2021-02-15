@@ -2,26 +2,38 @@ h1 {
   text-align: center;
 }
 
-.first {
-  background-color: rgb(235, 200, 84);
+li {
+  list-style: none;
+}
+
+section {
+  text-align: center;
+}
+
+
+:is(.first, .second, .third) {
   font-size: 20px;
   height: 50px;
   text-align: center;
+}
+
+:is(.second, .third) {
+  width: 300px;
+  display: inline-block;
+}
+
+.first {
+  background-color: rgb(235, 200, 84);
   width: 200px;
+  display: block;
+  margin: 0 auto;
 }
 
 .second {
   background-color: rgb(219, 219, 219);
-  font-size: 20px;
-  height: 50px;
-  text-align: center;
-  width: 300px;
+  /* margin-left: calc(50% - 300px); */
 }
 
 .third {
   background-color: rgb(170, 142, 106);
-  font-size: 20px;
-  height: 50px;
-  text-align: center;
-  width: 300px;
 }
