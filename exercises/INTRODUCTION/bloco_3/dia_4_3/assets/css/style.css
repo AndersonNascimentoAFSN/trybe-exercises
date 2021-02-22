@@ -49,7 +49,7 @@ table {
 
 
 
-/*  style css */
+/*  style css geral */
 
 
 body {
@@ -62,10 +62,26 @@ main {
   max-width: 1440px;
 }
 
+
+.title {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.paragraph {
+  line-height: 1.5;
+  font-size: 1em;
+  word-break: break-word;
+  letter-spacing: -0.003em;
+  margin-bottom: 20px;
+}
+
+/* Header  */
+
 .header {
   max-width: 1440px;
   margin: 40px auto;
-  text-align: right;
+  text-align: center;
 }
 
 .header__title {
@@ -80,35 +96,88 @@ main {
 
 .header__link {
   padding: 10px;
+  text-decoration: none;
 }
 
+
+
+/* article */
+
+
+.content {
+  max-width: 680px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
 
 .content__title {
   font-size: 2.5em;
 }
 
 
-.title {
-  font-size: 2em;
-  margin-bottom: 20px;
+.intro, .eyesight, .behavior  {
+  margin-top: 40px;
+}
+
+
+
+.intro__table {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.intro__table td, tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.intro__table caption {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.intro__table th {
+  font-weight: bold;
 }
 
 
 
 
+/* aside */
+
+.aside {
+  max-width: 680px;
+  margin: 40px auto;
+}
+
+/* References */
+
+.references {
+  max-width: 680px;
+  margin: 40px auto;
+}
+
+/* footer */
+
+footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
 
 
 
-h2 {
+
+/* h2 {
   font-size: 1.5em;
 }
 
 section {
   margin: 40px auto;
 
-}
+} */
 
-footer {
-  max-width: 1440px;
-  margin: 0 auto;
-}
