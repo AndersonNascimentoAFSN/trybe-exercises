@@ -1,3 +1,8 @@
+:root {
+  --green: #58B580;
+  --brown: #A63B26;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -62,10 +67,15 @@ main {
   max-width: 1440px;
 }
 
+.intro, .eyesight, .behavior  {
+  margin-top: 40px;
+}
+
 
 .title {
   font-size: 2em;
   margin-bottom: 10px;
+  color: var(--brown);
 }
 
 .paragraph {
@@ -75,6 +85,12 @@ main {
   letter-spacing: -0.003em;
   margin-bottom: 20px;
 }
+
+
+img {
+  max-width: 700px;
+}
+
 
 /* Header  */
 
@@ -97,11 +113,16 @@ main {
 .header__link {
   padding: 10px;
   text-decoration: none;
+  color: var(--brown);
+}
+
+.header__link:hover {
+  color: var(--green);
 }
 
 
 
-/* article */
+/* content */
 
 
 .content {
@@ -115,10 +136,7 @@ main {
 }
 
 
-.intro, .eyesight, .behavior  {
-  margin-top: 40px;
-}
-
+/* intro */
 
 
 .intro__table {
@@ -152,6 +170,11 @@ main {
 .aside {
   max-width: 680px;
   margin: 40px auto;
+  float: right;
+  /* position: absolute; */
+  position: fixed;
+  top: 400px;
+  right: 30px;
 }
 
 /* References */
@@ -168,16 +191,3 @@ footer {
   margin: 0 auto;
   text-align: center;
 }
-
-
-
-
-/* h2 {
-  font-size: 1.5em;
-}
-
-section {
-  margin: 40px auto;
-
-} */
-
