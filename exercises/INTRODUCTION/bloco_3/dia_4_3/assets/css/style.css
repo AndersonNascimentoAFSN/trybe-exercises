@@ -170,7 +170,7 @@ img {
 .aside {
   max-width: 680px;
   margin: 40px auto;
-  float: right;
+  /* float: right; */
   /* position: absolute; */
   position: fixed;
   top: 400px;
