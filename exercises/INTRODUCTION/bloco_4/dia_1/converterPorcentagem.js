@@ -1,18 +1,26 @@
 // Programa Conversão porcentagem e letras.
-let notaPorcentagem = 90;
+let notaPorcentagem = 51;
 let notaLetra = null;
 
-if(notaPorcentagem >= 90){
+
+if(notaPorcentagem >= 100 || notaPorcentagem <= 0){
+  notaLetra = 'Erro!'
+}
+  else if(notaPorcentagem >= 90 && notaPorcentagem){
   notaLetra = 'A';
-} else if(nota >= 80){
+} else if(notaPorcentagem >= 80){
   notaLetra = 'B';
-} else if(nota >= 70){
+} else if(notaPorcentagem >= 70){
   notaLetra = 'C';
-} else if(nota >= 60){
+} else if(notaPorcentagem >= 60){
   notaLetra = 'D';
-} else if(nota >= 50){
+} else if(notaPorcentagem >= 50){
   notaLetra = 'E';
-} else {
+} else if (notaPorcentagem < 50 && notaPorcentagem >= 0){
   notaLetra = 'F';
 }
-console.log(`A conversão da porcentagem ${notaPorcentagem}% é: ${notaLetra}`);
+if(notaLetra === 'Erro!') {
+  console.log('Erro!')
+} else {
+  console.log(`A conversão da porcentagem ${notaPorcentagem}% é: ${notaLetra}`);
+}
