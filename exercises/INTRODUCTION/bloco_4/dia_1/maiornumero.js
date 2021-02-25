@@ -1,3 +1,4 @@
+// programa maior número
 let number1 = 10;
 let number2 = 15;
 let maiorNumero = (number1>number2) ? number1 : number2;
