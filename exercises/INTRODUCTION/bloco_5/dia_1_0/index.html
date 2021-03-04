@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2 id='page-title'>Título</h2>
+    <p id='paragraph' class="paragraph">Dê uma cor para este parágrafo!</p>
+    <h4 id='subtitle'>Subtítulo</h4>
+    <p id='second-paragraph' class="paragraph">Segundo parágrafo!</p>
+
+
+    <style>
+      .paragraph {
+        font-size: 20px;
+        text-transform: uppercase;
+        border: 1px solid blue;
+      }
+    </style>
+
+    <script>
+      const paragraph = document.getElementById('paragraph');
+      paragraph.style.color = 'red';
+      
+      const title = document.getElementById('page-title');
+      title.innerHTML = 'Matrix';
+      title.style.color = 'green';
+
+      const secondParagraph = document.getElementById('second-paragraph');
+      secondParagraph.style.color = 'blue';
+      secondParagraph.innerText = 'Matrix é um filme muito bom!';
+
+      const subtitle = document.getElementById('subtitle');
+      subtitle.innerText = 'Conheça a psicologia por tras do filme Matrix';
+
+      const paragraphs = document.getElementsByTagName('p');
+      paragraphs[0].style.cssText = 'border: 1px solid black; color: green; ';
+      
+      const subTitleTag = document.getElementsByTagName('h4')[0];
+
+    </script>
+  </body>
+</html>
