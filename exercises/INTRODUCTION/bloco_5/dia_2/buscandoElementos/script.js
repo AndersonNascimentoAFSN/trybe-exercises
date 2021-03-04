@@ -1,5 +1,9 @@
+////// Conteúdos 
+
+///// Parte I - Buscando elementos
+
 // Acesse o elemento elementoOndeVoceEsta .
-let whereAreYou = document.querySelector('#elementoOndeVoceEsta');
+const whereAreYou = document.querySelector('#elementoOndeVoceEsta');
 
 // Acesse pai a partir de elementoOndeVoceEsta e adicione uma color a ele.
 whereAreYou.parentNode.style.cssText = 'color: blue; ';
@@ -10,13 +14,13 @@ whereAreYou.firstElementChild.textContent = 'Primeiro filho do filho';
 console.log(whereAreYou.firstElementChild);
 
 // Acesse o primeiroFilho a partir de pai.
-let father = document.getElementById('pai');
+const father = document.getElementById('pai');
 father.firstElementChild;
 console.log(father.firstElementChild);
 
 // Agora acesse o primeiroFilho a partir de elementoOndeVoceEsta .
 whereAreYou.previousElementSibling;
-console.log(whereAreYou.previousElementSibling);
+console.log(whereAreYou.previousElementSibling);primeiroFilhoDoFilho
 
 // Agora acesse o texto Atenção! a partir de elementoOndeVoceEsta .
 whereAreYou.nextSibling
@@ -29,8 +33,35 @@ console.log(whereAreYou.nextElementSibling);
 console.log(father.children[2]);
 
 
+//// Parte II - Criando elementos
+
+// Crie um irmão para elementoOndeVoceEsta.
+const brotherWhereAreYou = document.createElement('div');
+const textBrotherWhereAreYou = document.createTextNode = 'Brother Where Are You';
+father.append(brotherWhereAreYou);
+brotherWhereAreYou.append(textBrotherWhereAreYou);
+console.log(textBrotherWhereAreYou);
 
 
+// Crie um filho para elementoOndeVoceEsta.
+const sonWhereAreYouList = document.createElement('ul');
+const sonWhereAreYouListItem = document.createElement('li');
+const textSonWhereAreYou = document.createTextNode = 'Texto li lista'
+whereAreYou.append(sonWhereAreYouList);
+sonWhereAreYouList.append(sonWhereAreYouListItem);
+sonWhereAreYouListItem.append(textSonWhereAreYou);
+
+
+// Crie um filho para primeiroFilhoDoFilho.
+const firstSonOfSon = document.querySelector('#primeiroFilhoDoFilho');
+const sonFirstSonOfSon = document.createElement('div');
+firstSonOfSon.append(sonFirstSonOfSon);
+sonFirstSonOfSon.classList = 'sonFirstSonOfSon'
+
+// A partir desse filho criado, acesse terceiroFilho.
+sonFirstSonOfSonDiv = document.querySelector('.sonFirstSonOfSon')
+// console.log(sonFirstSonOfSonDiv);
+console.log(sonFirstSonOfSonDiv.parentNode.parentNode.parentNode.children[2]);
 
 
 
