@@ -66,3 +66,38 @@ console.log(sonFirstSonOfSonDiv.parentNode.parentNode.parentNode.children[2]);
 
 
 
+///// Parte III - Removendo elementos
+
+// Remova todos os elementos da página, menos pai , elementoOndeVoceEsta e primeiroFilhoDoFilho.
+
+let pai = document.querySelector('#pai');
+let firstSon = document.querySelector('#primeiroFilho');
+pai.removeChild(firstSon);
+
+for (let element of pai.children) {
+  // console.log(element.id)
+  if (element.id !== 'elementoOndeVoceEsta') {
+    console.log(element.id);
+    pai.removeChild(element);
+  }
+  // pai.removeChild(element);
+}
+
+
+
+
+
+
+
+// console.log(pai.children);
+// pai = Array.from(pai.childNodes);
+// console.log(pai);
+
+
+// pai.forEach((element) => {
+//   console.log(element, element.id);
+//     pai.removeChild(element);
+//     // console.log(element.id);
+
+// });
+// console.log(pai.childNodes);
