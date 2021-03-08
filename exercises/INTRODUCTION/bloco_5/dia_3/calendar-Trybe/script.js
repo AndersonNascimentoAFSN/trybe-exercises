@@ -116,19 +116,26 @@ function zoomEffect() {
   const list = document.querySelector('#days');
 
   function zoom(event) {
+    // event.stopPropagation();
+    // console.log(event.target);
     if(event.target.classList[0] === 'day') {
       event.target.style.cssText = 'font-size: 30px; font-weight: 600; ';
     }
   }
 
   function unZoom(event) {
+    event.stopPropagation();
     if(event.target.classList[0] === 'day') {
       event.target.style.cssText = 'font-size: 20px; font-weigth: 200; ';
     }
   }
 
-  list.addEventListener('mouseover', zoom);
-  list.addEventListener('mouseout', unZoom);
+  list.addEventListener('mouseover', zoom, {
+    // capture: false
+  });
+  list.addEventListener('mouseout', unZoom, {
+    // capture: false
+  });
 }
 
 zoomEffect();
@@ -195,18 +202,26 @@ function addTaskCalendar() {
   const btnTaskAdd = document.querySelector('#btn-add');
   const listTask = document.querySelector('.task-list');
   const taskInput = document.querySelector('#task-input');
+  let messageAlert = 'Por favor, informe o nome do compromisso na caixa de texto, somente após isso clique no botão ADICIONAR ou pressione a tecla Enter';
   
   btnTaskAdd.addEventListener('click', function(event) {
+    if (taskInput.value === '') {
+      alert(messageAlert);
+    }
     const task = document.createElement('p');
     listTask.appendChild(task);
     task.textContent = taskInput.value;
   });
 
   taskInput.addEventListener('keypress', function(event) {
+    
     if (event.keyCode === 13) {
-    const task = document.createElement('p');
-    listTask.appendChild(task);
-    task.textContent = taskInput.value;
+      if (taskInput.value === '') {
+        alert(messageAlert);
+      }
+      const task = document.createElement('p');
+      listTask.appendChild(task);
+      task.textContent = taskInput.value;
     }
   })
 }
