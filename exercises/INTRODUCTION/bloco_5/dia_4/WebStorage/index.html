@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Storage / LocalStorage</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <form action="" name='dados'>
+    <label class="title" for="fnome">Nome: </label>
+    <input type="text" name="fnome" id="fnome">
+    <label class="title" for="fcorF">Cor fundo: </label>
+    <div class="container">
+      <input class="container__item" type="radio" name="fcorF" value="red" id="red">
+      <label for="red">Vermelho</label>
+    </div>
+    <div class="container">
+      <input class="container__item"  type="radio" name="fcorF" value="blue" id="blue">
+      <label for="blue">Azul</label>
+    </div>
+    <div class="container">
+      <input class="container__item"  type="radio" name="fcorF" value="green" id="green">
+      <label for="green">Verde</label>
+    </div>
+    <div class="container">
+      <input class="container__item"  type="radio" name="fcorF" value="colorBlackBackGround" id="colorBlackBackGround">
+      <label for="colorBlackBackGround">Preto</label>
+    </div>
+    <div class="container">
+      <input class="container__item"  type="radio" name="fcorF" value="ColorWhiteBackGround" id="ColorWhiteBackGround">
+      <label for="ColorWhiteBackGround">Branco</label>
+    </div>
+    <label class="title" for="fcorT">Cor texto: </label>
+    <div class="container">
+      <input class="container__item"  type="radio" name="fcorF" value="ColorBlackText" id="ColorBlackText">
+      <label for="ColorBlackText">Preto</label>
+    </div>
+    <div class="container">
+      <input class="container__item"  type="radio" name="fcorF" value="ColorWhiteText" id="ColorWhiteText">
+      <label for="ColorWhiteText">Branco</label>
+    </div>
+    <input class="btn" type="button" value="Gravar" name="enviar" id="enviar">
+  </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Creator</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <section class="button-creator">
+    <form action="" id="controls" class="config">
+      <label class="config__label" for="text">Texto</label>
+      <input class="config__input" type="text" name="text" id="text">
+      
+      <label class="config__label" for="color">Cor</label>
+      <input class="config__input" type="color" name="color" id="color">
+
+      <label class="config__label" for="backgroundColor">Cor de fundo</label>
+      <input class="config__input" type="color" name="backgroundColor" id="backgroundColor">
+
+      <label class="config__label" class="config__label" for="height">Altura</label>
+      <input class="config__input"type="range" name="height" id="height" min="0" max="200">
+
+      <label class="config__label" for="width">Largura</label>
+      <input class="config__input" type="range" name="width" id="width" min="0" max="600">
+      
+      <label class="config__label" for="border">Borda</label>
+      <input class="config__input" type="text" name="border" id="border">
+
+      <label class="config__label" for="borderRadius">Bordas da borda</label>
+      <input class="config__input" type="range" name="borderRadius" id="borderRadius" min="0" max="20">
+
+      <label class="config__label" for="fontFamily">Tipo da fonte</label>
+      <select name="fontFamily" id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="monospace">Monospace</option>
+      </select>
+
+      <label class="config__label" for="fontSize">Tamanho da Fonte</label>
+      <input class="config__input" type="number" name="fontSize" id="fontSize">
+    </form>
+    <section class="result">
+      <button class="btn">Clique</button>
+      <pre><code class="css">
+      </code></pre>
+    </section>
+  </section>
+</body>
+</html>
