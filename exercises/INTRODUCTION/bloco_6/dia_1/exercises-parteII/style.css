@@ -1,0 +1,11 @@
+form {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: aquamarine;
+  padding: 40px;
+}
+
+label {
+  font-weight: 600;
+  color: rgb(76, 76, 76);
+}
