@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic controls: Task 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <form>
+    <fieldset>
+      <legend>Who is your favorite pony?</legend>
+      <ul>
+        <li>
+          <label for="pinkie">Pinkie Pie</label>
+          <input checked type="radio" name="pony" id="pinkie" value="pk">
+        </li>
+        <li>
+          <label for="rainbow">Rainbow Dash</label>
+          <input type="radio" name="pony" id="rainbow" value="rb">
+        </li>
+        <li>
+          <label for="twilight">Twilight Sparkle</label>
+          <input type="radio" name="pony" id="twilight" value="tw">
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>Hotdog preferences</legend>
+      <ul>
+        <li>
+          <label for="vegan">Vegan</label>
+          <input checked type="checkbox" name="vegan" id="vegan" value="vegan">
+        </li>
+        <li>
+          <label for="onions">Onions</label>
+          <input type="checkbox" name="onions" id="onions" value="onions">
+        </li>
+      </ul>
+    </fieldset>
+    <button autofocus type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
