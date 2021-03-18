@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  height: 50px;
+  margin: auto;
+  width: 100%;
+}
+
+.container > div + div{
+  margin-left: 10px;
+}
+
+.box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.one {
+  background-color: #FBD26A;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+  
+}
+
+.two {
+  background-color: #FAA488;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+}
+
+.three {
+  background-color: #9069EF;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 2;
+}
+
+.four {
+  background-color: #006472;
+  display: flex;
+  /* Altere a propriedade grow. */
+  flex-grow: 1;
+}
