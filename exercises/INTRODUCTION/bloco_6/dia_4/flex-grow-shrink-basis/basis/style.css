@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  height: 50px;
+  margin: auto;
+  width: 100%;
+}
+
+.container > div + div {
+  margin-left: 10px;
+}
+
+.box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* Altere a propriedade flex-basis */
+  flex-basis: 100px;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.one {
+  background-color: #FBD26A;
+  flex-basis: 200px;
+}
+
+.two {
+  background-color: #FAA488;
+  flex-basis: 500px;
+}
+
+.three {
+  background-color: #9069EF;
+}
+
+.four {
+  background-color: #006472;
+}
