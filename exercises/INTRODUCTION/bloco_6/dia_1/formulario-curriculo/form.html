@@ -14,76 +14,78 @@
     <p>Preencha o formulário abaixo</p>
   </header>
   
-  <form action="" class="form" id="form">
-    <fieldset>
-      <legend>Informações Pessoais:</legend>
-      <div class="line">
+  <form class="form" id="form">
+
+    <h2>Informações Pessoais:</h2>
+    <ul>
+      <li class="line">
         <label for="name">Nome:</label>
         <input type="text" name="name" id="name" maxlength="40" required>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="email">E-mail:</label>
-        <input type="text" name="email" id="email" maxlength="50" required>
-      </div>
+        <input type="text" name="email" id="email" maxlength="50" required class="email-input">
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="cpf">CPF:</label>
         <input type="text" name="cpf" id="cpf" maxlength="11" required>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="address">Endereço:</label>
         <input type="text" name="address" id="address" maxlength="200" required>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="city">Cidade:</label>
         <input type="text" name="city" id="city" maxlength="28" required>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="state">Estado:</label>
         <select name="state" id="state" required>
           <!-- <option value="AL">Alagoas</option> via javascript -->
         </select>
-      </div>
+      </li>
+      <li class="line">
+        <fieldset>
+          <legend>Moradia</legend>
+          <label for="type1">Casa</label>
+          <input type="radio" name="type" id="type1" value="house">
+          <label for="type2">Apartamento</label>
+          <input type="radio" name="type" id="type2" value="apartment">
+        </fieldset>
+      </li>
 
-      <div class="line">
-        <label for="type1">Casa</label>
-        <input type="radio" name="type" id="type1" value="house">
-        <label for="type2">Apartamento</label>
-        <input type="radio" name="type" id="type2" value="apartment">
-      </div>
-
-    </fieldset>
-
-    <fieldset>
-      <legend>Dados do último emprego:</legend>
-      <div class="line">
+      <h2>Dados do último emprego:</h2>
+      <li class="line">
         <label for="curriculum">Resumo do currículo:</label>
         <textarea name="curriculum" id="curriculum" cols="30" rows="10" required maxlength="1000"></textarea>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="office">Cargo:</label>
         <input type="text" name="office" id="office" required>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="jobDescription">Descrição do Cargo:</label>
         <input type="text" name="jobDescription" id="jobDescription" maxlength="500" required>
-      </div>
+      </li>
 
-      <div class="line">
+      <li class="line">
         <label for="data">Data de início:</label>
-        <input type="text" name="data" id="data" required>
-      </div>
-    </fieldset>
+        <input type="text" name="data" id="data" required class="input-data">
+      </li>
+    </ul>
 
-    <button type="submit" id="submit">Enviar</button>
+    <button type="button" id="submit-button">Enviar</button>
+    <button class="clear-button" type="button">Limpar</button>
   </form>
   
+  <section class="form-data"></section>
 
 </body>
 <script src="script.js"></script>
