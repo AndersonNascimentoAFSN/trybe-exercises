@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Currículo</title>
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="title is-1">Formulário de Currículo</h1>
+    <h2 class="subtitle is-4">Preencha o formulário abaixo</h2>
+  </header>
+  
+  <form class="form" id="form">
+
+    <h3 class="subtitle is-5">Informações Pessoais:</h3>
+    <ul>
+      <li class="line field">
+        <label class="label" for="name">Nome:</label>
+        <li class="control">
+          <input class="input" type="text" name="name" id="name" maxlength="40" required>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="email">E-mail:</label>
+        <li class="control">
+          <input type="text" name="email" id="email" maxlength="50" required class="email-input input">  
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="cpf">CPF:</label>
+        <li class="control">
+          <input class="input" type="text" name="cpf" id="cpf" maxlength="11" required>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="address">Endereço:</label>
+        <li class="control">
+          <input class="input" type="text" name="address" id="address" maxlength="200" required>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="city">Cidade:</label>
+        <li class="control">
+          <input class="input" type="text" name="city" id="city" maxlength="28" required>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="state">Estado:</label>
+        <li class="control">
+          <li class="select">
+            <select name="state" id="state" required>
+          </li>
+        </li>
+          <!-- <option value="AL">Alagoas</option> via javascript -->
+        </select>
+      </li>
+      <li class="line" class="field">
+        <fieldset class="control">
+          <legend>Moradia</legend>
+          <label class="radio" for="type1">
+            <input type="radio" name="type" id="type1" value="house">
+            Casa
+          </label>
+         
+          <label class="radio" for="type2">
+            <input type="radio" name="type" id="type2" value="apartment">
+            Apartamento
+          </label>
+        </fieldset>
+      </li>
+
+      <h3 class="subtitle is-5">Dados do último emprego:</h3>
+      <li class="line field">
+        <label class="label" for="curriculum">Resumo do currículo:</label>
+        <li class="control">
+          <textarea class="textarea" name="curriculum" id="curriculum" cols="30" rows="10" required maxlength="1000"></textarea>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="office">Cargo:</label>
+        <li class="control">
+          <input class="input" type="text" name="office" id="office" required>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="jobDescription">Descrição do Cargo:</label>
+        <li class="control">
+          <input class="input" type="text" name="jobDescription" id="jobDescription" maxlength="500" required>
+        </li>
+      </li>
+
+      <li class="line field">
+        <label class="label" for="data">Data de início:</label>
+        <li class="control">
+          <input type="text" name="data" id="data" required class="input-data input">
+        </li>
+      </li>
+
+      <li class="btns">
+        <button type="button" id="submit-button is-hovered" class="button is-primary">Enviar</button>
+        <button class="clear-button button is-danger is-hovered" type="button">Limpar</button>
+      </li>
+    </ul>
+
+  </form>
+  
+  <section class="form-data"></section>
+
+</body>
+<script src="script.js"></script>
+</html>
