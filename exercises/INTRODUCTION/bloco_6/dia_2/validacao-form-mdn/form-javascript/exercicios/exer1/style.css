@@ -1,0 +1,33 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding: 1em;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  display: block;
+  width: 200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:is(input, textarea):invalid {
+  border: 2px dotted #900;
+  background-color: #FDD;
+}
+
+:is(input, textarea):valid {
+  border: 2px solid black;
+}
+
+:is(input:focus, textarea:focus):invalid {
+  outline: none;
+} 

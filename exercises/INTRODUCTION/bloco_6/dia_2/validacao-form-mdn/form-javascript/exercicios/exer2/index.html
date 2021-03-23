@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Form validation: Task 2</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <!-- Validação integrada -->
+
+  <body>
+    <form no>
+      <h2>Enter your support query</h2>
+      <ul>
+        <li>
+          <label for="uname">User name:</label>
+          <input type="text" name="uname" id="uname" required pattern="(^[A-Z])\.([A-Z]{3,}|[0-9]{3,})">
+        </li>
+        <li>
+          <label for="email">Email address:</label>
+          <input type="mail" name="email" id="email" required pattern="[a-zA-Z0-9]+@\w+\.[a-zZ-a]+">
+        </li>
+        <li>
+          <label for="phone">Phone number:</label>
+          <input type="tel" name="phone" id="phone" required pattern="(\d{11}|\d{2}\d{4})">
+        </li>
+        <li>
+          <label for="comment">Comment:</label>
+          <textarea name="comment" id="comment" required maxlength="200"></textarea>
+        </li>
+        <li>
+          <button>Submit comment</button>
+        </li>
+      </ul>
+    </form>
+  </body>
+
+  <script src="script.js"></script>
+</html>
