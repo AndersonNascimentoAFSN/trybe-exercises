@@ -1,24 +1,48 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+form {
+  margin: 0 auto;
+  width: 400px;
   padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.preferences__items {
-  list-style: none;
+form li + li {
+  margin-top: 1em;
 }
 
 label {
-  display: block;
-  width: 100px;
+  display: inline-block;
+  width: 90px;
+  text-align: right;
 }
 
-input[type="email"], input[type="tel"], input[type="url"] {
-  width: 100%;
+input, textarea {
+  font-size: 1em;
+  font-family: sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+  border-color: #000;
+}
+
+textarea {
+  vertical-align: top;
+  height: 5em;
+}
+
+.button {
+  padding-left: 90px;
+}
+
+button {
+  margin-left: .5em;
 }

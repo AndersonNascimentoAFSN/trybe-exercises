@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML5 controls: Task 1</title>
+  <title>My test page</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <form class="preferences">
-    <h2 class="preferences__title">Edit your preferences</h2>
-    <ul class="preferences__items">
-     
+  <!-- <p>This is my page</p> -->
+  <form action="/my-handling-form-page" method="post">
+    <ul>
       <li>
-        <label for="e-mail">Email</label>
-        <input type="email" name="userEmail" id="e-mail" placeholder="user@email.com">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="user_name">
       </li>
-
       <li>
-        <label for="website">Website</label>
-        <input type="url" name="website" id="website" value="https://" placeholder="https://www.website.com">
+        <label for="mail">E-mail:</label>
+        <input type="email" name="user_email" id="mail">
       </li>
-
       <li>
-        <label for="phone">Phone number</label>
-        <input type="tel" name="tel" id="phone">
+        <label for="msg">Message:</label>
+        <textarea name="user_message" id="msg" cols="30" rows="10"></textarea>
       </li>
-     
-      <li>
-        <label for="fave-color">Favorite color</label>
-        <input type="color" name="fave-color" id="fave-color">
+      <li class="button">
+        <button type="submit">Send your message</button>
       </li>
-
-      <li>
-        <button>Update preferences</button>
-      </li>
-
     </ul>
   </form>
-
 </body>
 </html>
