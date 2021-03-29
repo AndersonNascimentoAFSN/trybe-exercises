@@ -1,0 +1,16 @@
+// 3) Escreva a função sumAllNumbers para passar nos testes já implementados.
+
+const assert = require('assert');
+// Escreva a função sumAllNumbers aqui
+
+const sumAllNumbers = (array) => {
+  return array.reduce((accumulator, number) => accumulator + number);
+}
+
+const numbers = [9, 23, 10, 3, 8];
+const expected = 53;
+const output = sumAllNumbers(numbers);
+
+assert.strictEqual(typeof sumAllNumbers, 'function');
+assert.strictEqual(output, expected);
+
