@@ -95,7 +95,7 @@ function nameAndAge() {
   const nameAndAgeList = books.map((book) => { 
     return {
       author: book.author.name,
-      age: book.releaseYear - book.author.birthYear, 
+      age: book.releaseYear - book.author.birthYear,
     } 
   });
   return nameAndAgeList.sort((previusAge, nextAge) => previusAge.age - nextAge.age);

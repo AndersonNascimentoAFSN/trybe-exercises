@@ -91,7 +91,7 @@ function oldBooks() {
   // escreva seu código aqui
   const currentYear = new Date().getUTCFullYear();
   const filteredBooks = books.filter((book) => (currentYear - book.releaseYear) > 60);
-  return filteredBooks.sort((a, b) => a.releaseYear - b.releaseYear);
+  return filteredBooks.sort((bookA, bookB) => bookA.releaseYear - bookB.releaseYear);
 }
 
 assert.deepStrictEqual(oldBooks(), expectedResult);
