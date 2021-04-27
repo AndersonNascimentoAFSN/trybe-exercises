@@ -1,5 +1,7 @@
-exercises/INTRODUCTION/bloco_10/dia_1/exemplo2-video/node_modules/
-exercises/INTRODUCTION/bloco_10/dia_1/exercicios/node_modules/
-exercises/INTRODUCTION/bloco_10/dia_2/exemplos/node_modules/
-exercises/INTRODUCTION/bloco_10/dia_2/atividades/node_modules/
-exercises/INTRODUCTION/bloco_10/dia_3/exemplos/node_modules/
+*node_modules/
+# exercises/INTRODUCTION/bloco_10/dia_1/exemplo2-video/node_modules/
+# exercises/INTRODUCTION/bloco_10/dia_1/exercicios/node_modules/
+# exercises/INTRODUCTION/bloco_10/dia_2/exemplos/node_modules/
+# exercises/INTRODUCTION/bloco_10/dia_2/atividades/node_modules/
+# exercises/INTRODUCTION/bloco_10/dia_3/exemplos/node_modules/
+# exercises/FRONT-END/bloco_11/dia_1/exemplos/node_modules/
