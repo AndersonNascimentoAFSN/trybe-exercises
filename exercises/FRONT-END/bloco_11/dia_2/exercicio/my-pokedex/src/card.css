@@ -1,0 +1,32 @@
+.c-card {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  flex-basis: 235px;
+  min-width: 30%;
+  flex: 1 1 auto;
+  margin: 0 auto;
+  color: rgb(72,72,72);
+  background-color: rgb(209, 229, 217);
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 1px 1px 1px 1px rgb(220, 234, 226), 2px 2px 2px 2px rgb(184, 216, 197);
+  border: none;
+}
+
+/* .c-card + .c-card {
+  margin-left: 20px;
+} */
+
+.c-card:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* normal: rgb(209, 229, 217)
+clara: rgb(220, 234, 226)
+escura: rgb(184, 216, 197) */
