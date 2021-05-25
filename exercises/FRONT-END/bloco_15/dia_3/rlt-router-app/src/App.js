@@ -1,11 +1,10 @@
 import React from 'react';
+import { Routers } from './components/Routers';
 
-function App() {
+export function App() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Routers />
+    </>
   );
 }
-
-export default App;

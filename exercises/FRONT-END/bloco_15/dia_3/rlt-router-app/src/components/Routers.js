@@ -1,9 +1,11 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Home } from './Home/Home';
 
-export default function Routers() {
+export function Routers() {
   return (
-    <div>
-
-    </div>
+    <Switch>
+      <Route exact path="/"  render={ (props) =>  <Home {...props}/> } />
+    </Switch>
   )
 }
