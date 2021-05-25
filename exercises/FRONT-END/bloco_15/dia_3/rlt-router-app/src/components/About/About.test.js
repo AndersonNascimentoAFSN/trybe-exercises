@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { App } from '../../App';
 import { renderWithRouter } from '../../helpers/renderWithRouter'
 
-describe('Checks if the about component is accessible by /about', () => {
+describe('Tests the about component', () => {
 
   it('Checks if the about component is accessible by /about', () => {
     const { getByRole, history } = renderWithRouter(<App />);
