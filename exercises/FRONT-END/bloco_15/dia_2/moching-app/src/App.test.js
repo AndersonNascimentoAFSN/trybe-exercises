@@ -40,14 +40,14 @@ describe('Teste da aplicação',() => {
       "status": 200
     };
 
-    jest.spyOn(global, 'fetch');
-    global.fetch.mockResolvedValue({
-      json: jest.fn().mockResolvedValue(joke),
-    });
-
-    // global.fetch = jest.fn().mockResolvedValue({
+    // jest.spyOn(global, 'fetch');
+    // global.fetch.mockResolvedValue({
     //   json: jest.fn().mockResolvedValue(joke),
     // });
+
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(joke),
+    });
 
     render(<App />);
 
