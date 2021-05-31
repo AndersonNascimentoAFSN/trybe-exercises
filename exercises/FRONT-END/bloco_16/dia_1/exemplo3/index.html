@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contator - Modal - combineReducers</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+  <h1 id="show">Total: <span id="value">0</span></h1>
+  
+  <button type="button" id="increment">Incrementar</button>
+  <div>
+    <button type="button" id="open">Exibir</button>
+    <button type="button" id="close">Ocultar</button>
+  </div>
+  
+  <script>
+    
+    const INCREMENT = 'INCREMENT';
+    const OPEN = 'OPEN';
+    const CLOSE = 'CLOSE';
+
+    function increment() {
+      return { type: INCREMENT };
+    }
+
+    function open() {
+      return { type: OPEN };
+    }
+
+    function close() {
+      return { type: CLOSE };
+    }
+
+    const contadorReducer = (state = 0, action) => {
+      switch(action.type) {
+        case INCREMENT:
+          return state + 1;
+        default: 
+          return state;
+      }
+    }
+
+    const modalReducer = (state = true, action) => {
+      switch(action.type) {
+        case OPEN:
+          return true;
+        case CLOSE: 
+          return false;
+        default: 
+          return state;
+      }
+    }
+
+    const reducer = Redux.combineReducers({ contadorReducer, modalReducer });
+    const store = Redux.createStore(reducer);
+    
+    const valor = store.getState().contadorReducer;
+    console.log(valor);
+
+    const incrementBtn = document.getElementById('increment');
+    incrementBtn.addEventListener('click', () => {
+      store.dispatch(increment());
+    });
+
+    const openBtn = document.getElementById('open');
+    openBtn.addEventListener('click', () => {
+      closeBtn.disabled = false;
+      openBtn.disabled = true;
+      store.dispatch(open());
+    });
+    const closeBtn = document.getElementById('close');
+    closeBtn.addEventListener('click', () => {
+      closeBtn.disabled = true;
+      openBtn.disabled = false;
+      store.dispatch(close());
+    });
+
+   function render() {
+     const { contadorReducer, modalReducer } = store.getState();
+    const show = document.getElementById('show');
+      const value = document.getElementById('value');
+      value.textContent = contadorReducer;
+
+      const modal = modalReducer;
+      if (modal) {
+        show.style.visibility = 'visible';
+
+      } else {
+        show.style.visibility = 'hidden';
+      }
+   }
+
+    store.subscribe(render);
+
+  </script>
+</body>
+</html>

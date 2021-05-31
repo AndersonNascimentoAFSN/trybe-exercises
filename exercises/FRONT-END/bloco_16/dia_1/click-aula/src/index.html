@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+  <div>
+    <p>Clicked: <span id="value">0</span> times</p>
+    <button id="increment">+</button>
+    <button id="decrement">-</button>
+    <button id="increment-10">Adicionar 10</button>
+  </div>
+
+  <script>
+
+    // REDUX
+    const INCREMENT = 'INCREMENT';
+    const DECREMENT = 'DECREMENT';
+    const INCREMENT10 = 'INCREMENT10';
+
+    function increment(value = 1) {
+      return { 
+        type: INCREMENT,
+        payload: {
+          amount: value,
+        } 
+      };
+    }
+
+    function decrement() {
+      return { 
+        type: DECREMENT,
+      };
+    }
+
+    const counterReducer = (state = 0, action) => {
+      switch(action.type) {
+        case INCREMENT:
+          return state + action.payload.amount;
+        case DECREMENT:
+          return state - 1;
+        default: 
+          return state;
+      }
+    }
+
+    const store = Redux.createStore(
+      counterReducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
+
+    const unsubscriber = store.subscribe(() => {
+      document.querySelector('#value').textContent = store.getState();
+    });
+
+    // Programa
+
+    const incrementBtn = document.querySelector('#increment');
+    const decrementBtn = document.querySelector('#decrement');
+    const incrementBtn10 = document.querySelector('#increment-10');
+
+    incrementBtn.addEventListener('click', () => {
+      const span = document.querySelector('#value');
+      store.dispatch(increment());
+    });
+
+    decrementBtn.addEventListener('click', () => {
+      const span = document.querySelector('#value');
+      store.dispatch(decrement());
+    });
+
+    incrementBtn10.addEventListener('click', () => {
+      const span = document.querySelector('#value');
+      store.dispatch(increment(10));
+    });
+
+  </script>
+</body>
+</html>

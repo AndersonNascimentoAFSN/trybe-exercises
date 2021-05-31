@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux - Imutabilidade - immer </title>
+  <script src="redux.min.js"></script>
+  <script src="immer.umd.production.min.js"></script>
+</head>
+<body>
+  <h1>Nome: <span id="name"></span></h1>
+
+
+  <script>
+    const CHANGE_NAME = 'CHANGE_NAME';
+    const CHANGE_AGE = 'CHANGE_AGE';
+
+    function changeName(payload) {
+      return { type: CHANGE_NAME, payload};
+    }
+    function  changeAge(payload) {
+      return { type: CHANGE_AGE, payload };
+    }
+
+    const initialState = {
+      nome: 'Anderson',
+      idade: 29,
+    }
+
+    //// sem immer
+    // function reducer(state = initialState, action) {
+    //   switch (action.type) {
+    //     case CHANGE_NAME:
+    //       return { ...state, nome: action.payload };
+    //       // return Object.assign({ }, state, { nome: action.payload });
+    //     default:
+    //       return state;
+    //   }
+    // }
+
+
+    // const initialState = {
+    //   nome: 'Anderson',
+    //   sobre: {
+    //     dados: {
+    //       idade: 29,
+    //     }
+    //   }
+    // }
+
+    // const reducer = (state = initialState, action) => {
+    //   switch (action.type) {
+    //     case CHANGE_NAME:
+    //       return { ...state, nome: action.payload }
+    //     case CHANGE_AGE:
+    //       return { ...state, sobre: { dados: { idade: 30}}}
+    //     default: 
+    //       return state;
+    //   }
+    // };
+
+    //// Com immer
+    const reducer = immer.produce((state, action) => {
+      switch (action.type) {
+        case CHANGE_NAME:
+          state.nome = action.payload;
+          break;
+        case CHANGE_AGE:
+          state.idade = action.payload;
+          break;  
+      }
+    }, initialState);
+
+    const store = Redux.createStore(
+      reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
+    
+    store.subscribe(() => {
+      const name = document.getElementById('name');
+      name.innerHTML = store.getState().nome;
+    });
+
+    store.dispatch(changeName('Felipe'));
+    store.dispatch(changeAge(30));
+   
+  </script>
+</body>
+</html>
