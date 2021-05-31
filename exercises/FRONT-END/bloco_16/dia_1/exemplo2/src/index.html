@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contator - Modal</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+  <h1 id="show">Total: <span id="value">0</span></h1>
+  
+  <button type="button" id="increment">Incrementar</button>
+  <div>
+    <button type="button" id="open">Exibir</button>
+    <button type="button" id="close">Ocultar</button>
+  </div>
+  
+  <script>
+    
+    const initialValue = { value: 0, modal: true };
+    const INCREMENT = 'INCREMENT';
+    const OPEN = 'OPEN';
+    const CLOSE = 'CLOSE';
+
+    function increment() {
+      return { type: INCREMENT };
+    }
+
+    function open() {
+      return { type: OPEN };
+    }
+
+    function close() {
+      return { type: CLOSE };
+    }
+
+    const reducer = (state = initialValue, action) => {
+      switch(action.type) {
+        case INCREMENT:
+          return {...state, value: state.value + 1};
+        case OPEN:
+          return { ...state, modal: true };
+        case CLOSE: 
+          return { ...state, modal: false };
+        default: 
+          return state;
+      }
+    }
+
+    const store = Redux.createStore(reducer);
+    
+    const incrementBtn = document.getElementById('increment');
+    incrementBtn.addEventListener('click', () => {
+      store.dispatch(increment());
+    });
+
+    const openBtn = document.getElementById('open');
+    openBtn.addEventListener('click', () => {
+      store.dispatch(open());
+    });
+    const closeBtn = document.getElementById('close');
+    closeBtn.addEventListener('click', () => {
+      store.dispatch(close());
+    });
+
+    store.subscribe(() => {
+      const show = document.getElementById('show');
+      const value = document.getElementById('value');
+      value.textContent = store.getState().value;
+
+      const modal = store.getState().modal;
+      if (modal) {
+        show.style.visibility = 'visible';
+      } else {
+        show.style.visibility = 'hidden';
+      }
+    });
+
+  </script>
+</body>
+</html>

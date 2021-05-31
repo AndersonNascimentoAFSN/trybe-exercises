@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+
+  <button type="button" id="incrementar">Incrementar</button>
+  <button type="button" id="somar">Somar</button>
+  <span id="number">0</span>
+  <script>
+
+    /* 
+    Organização do código por meio de Constantes e Actions Creators. 
+    
+    As constantes ajudam a manter o código seguro de erros de digitação, uma recomentação até do lint.
+
+    As actions creators ajudam a evitar a repetição de código. Como no exemplo abaixo, utilizei a função somar que retorna o objeto necessário, que informa o tipo e payload.
+      store.dispatch(somar(25));
+      store.dispatch({ type: SOMAR, payload });
+    */
+
+    // Constantes
+    const initialState = 0;
+    const INCREMENTAR = 'INCREMENTAR';
+    const SOMAR = 'SOMAR';
+
+    // Action Creator
+    const somar = (payload) => {
+      return { type: SOMAR, payload };
+    }
+
+    const incrementar = () => {
+      return { type: INCREMENTAR };
+    }
+
+    const reducer = (state = initialState, action) => {
+      
+      switch(action.type) {
+        case SOMAR:
+          return state + action.payload;
+        case INCREMENTAR:
+          return state += 1;
+        default:
+          return state;
+      }
+    };
+
+    const store = Redux.createStore(reducer);
+
+    function handleIncrementar() {
+      const btnIncrementar = document.querySelector('#incrementar');
+      btnIncrementar.addEventListener('click', () => {
+        store.dispatch(incrementar());
+      });
+    }
+
+    handleIncrementar();
+
+    function handleSomar() {
+      const btnSomar = document.querySelector('#somar');
+      btnSomar.addEventListener('click', () => {
+        store.dispatch(somar(10));
+      });
+    }
+
+    handleSomar();
+
+    function render() {
+      const valor = document.querySelector('#number');
+      valor.textContent = store.getState();
+    }
+
+    // store.subscribe(() => {
+    //   render();
+    // });
+
+    const unsibscribe = store.subscribe(render);
+    // unsibscribe();
+
+  </script>
+</body>
+</html>

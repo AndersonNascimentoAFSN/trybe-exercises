@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício Bônus</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+  
+  <ul>
+    <li>
+      <label for="incrementInput">Digite o número de incremento:</label>
+      <input id="incrementInput" type="text">
+      <button type="button" id="incrementBtn">Increment</button>
+    </li>
+    <li>
+      <label for="decrementInput">Digite o número de decremento:</label>
+      <input id="decrementInput" type="text">
+      <button type="button" id="decrementBtn">Decrement</button>
+    </li>
+  </ul>
+
+  <h1>Número: <span id="value">0</span></h1>
+  <h1>Quantidade de clicks: <span id="clicks">0</span></h1>
+
+  <script>
+
+    const INCREMENT = 'INCREMENT';
+    const DECREMENT = 'DECREMENT';
+
+    function increment(payload) {
+      return { type: INCREMENT, payload}
+    }
+
+    function decrement(payload) {
+      return { type: DECREMENT, payload}
+    }
+
+    const initialState = { value: 0, clickCount: 0, valueClick: [] };
+    const reducer = (state = initialState, action) => {
+      switch(action.type) {
+        case INCREMENT:
+          return { ...state, value: state.value + action.payload, clickCount: state.clickCount + 1, valueClick: [...state.valueClick, state.clickCount] };
+        case DECREMENT: 
+          return { ...state, value: state.value - action.payload, clickCount: state.clickCount + 1, valueClick: [...state.valueClick, state.clickCount] };
+        default:
+          return state;
+      }
+    }
+
+    const store = Redux.createStore(
+      reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
+
+    const incrementBtn = document.getElementById('incrementBtn');
+    const decrementBtn = document.getElementById('decrementBtn');
+    
+    incrementBtn.addEventListener('click', () => {
+      const incrementInput = document.getElementById('incrementInput').value;
+      store.dispatch(increment(+incrementInput));
+    });
+
+    decrementBtn.addEventListener('click', () => {
+      const decrementInput = document.getElementById('decrementInput').value;
+      store.dispatch(decrement(+decrementInput));
+    });
+
+    const render = () => {
+      const value = document.getElementById('value');
+      const clicks = document.getElementById('clicks');
+      value.textContent = store.getState().value;
+      clicks.textContent = store.getState().clickCount;
+    }
+
+    store.subscribe(render);
+
+  </script>
+</body>
+</html>
