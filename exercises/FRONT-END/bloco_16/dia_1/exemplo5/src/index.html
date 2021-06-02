@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio Redux</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+  
+  <h1 id="aluno"></h1>
+  <h1 id="aulas"></h1>
+
+  <script type="module">
+    import { incrementarTempo, reduzirTempo, modificarEmail } from './actions/index.js';
+    import { completarAula, completarCurso, resetarCurso } from './actions/index.js';
+
+    import store from './store/index.js';
+
+
+    function render() {
+      const { aulas, aluno } = store.getState();
+      const aulasE1 = document.getElementById('aulas');
+      const alunoE1 = document.getElementById('aluno');
+
+      aulasE1.innerText = aulas.filter((aula) => aula.completa === true).length;
+      alunoE1.innerText = `
+        Aluno: ${aluno.nome} 
+        Email: ${aluno.email} 
+        Dias restantes: ${aluno.diasRestantes}
+      `
+    }
+
+    render();
+
+    store.subscribe(render);
+
+    store.dispatch(completarCurso());
+    store.dispatch(resetarCurso());
+    store.dispatch(reduzirTempo());
+    store.dispatch(incrementarTempo());
+    store.dispatch(incrementarTempo());
+    store.dispatch(completarAula(1));
+    store.dispatch(completarAula(2));
+    store.dispatch(completarAula(3));
+    
+  </script>
+</body>
+</html>
