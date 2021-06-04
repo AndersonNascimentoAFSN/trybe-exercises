@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reux Middleware Thunk</title>
+  <script src="redux.min.js"></script>
+  <script src="fetch.js"></script>
+</head>
+<body>
+  
+
+  <script type="module">
+    import store from './store/index.js';
+
+    // async function fetchUrl(dispatch, url) {
+    //   try {
+    //     dispatch({ type: 'FETCH_STARTED' });
+    //     const data = await fetch(url).then((r) => r.json());
+    //     dispatch({ type: 'FETCH_SUCCESS', payload: data });
+    //   } catch (error) {
+    //     dispatch({ type: 'FETCH_ERROR', payload: error.message })
+    //     console.log(error);
+    //   }
+    // }
+
+    // function fetchUrl(url) {
+    //   return async (dispatch) =>  {
+    //     try {
+    //       dispatch({ type: 'FETCH_STARTED' });
+    //       const data = await fetch(url).then((r) => r.json());
+    //       console.log(data);
+    //       dispatch({ type: 'FETCH_SUCCESS', payload: data });
+    //     } catch (error) {
+    //       dispatch({ type: 'FETCH_ERROR', payload: error.message })
+    //     }
+    //   }
+    // }
+
+    function fetchUrl(url) {
+      return (dispatch) =>  {
+        fetch(url)
+          .then((response) => {
+            if(!response.ok) {
+              throw Error('could not fetch the data for that resource');
+            }
+              return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            dispatch({ type: 'FETCH_STARTED' });
+            dispatch({ type: 'FETCH_SUCCESS', payload: data });
+          })
+          .catch((error) => {
+            console.log(error);
+            dispatch({ type: 'FETCH_ERROR', payload: error.message })
+          })
+      }
+    }
+
+    // store.dispatch(fetchUrl(store.dispatch, 'https://dogsapi.origamid.dev/json/api/photo'));
+    store.dispatch(fetchUrl('https://dogsapi.origamid.dev/json/api/phto'));
+
+
+    // fetchUrl(store.dispatch, 'https://dogsapi.origamid.dev/json/api/photo');
+    // fetchUrl(store.dispatch, 'https://dogsapi.origamid.dev/json/api/phot');
+
+  </script>
+</body>
+</html>
