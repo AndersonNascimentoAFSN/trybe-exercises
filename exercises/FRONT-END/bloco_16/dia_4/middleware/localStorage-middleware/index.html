@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux Middleware Storage</title>
+  <script src="redux.min.js"></script>
+</head>
+<body>
+  
+
+  <script type="module">
+    import store from './store/index.js';
+
+    function fetchUrl(url) {
+      console.log('fetch')
+      return (dispatch) =>  {
+        fetch(url)
+          .then((response) => {
+            if(!response.ok) {
+              throw Error('could not fetch the data for that resource');
+            }
+              return response.json();
+          })
+          .then((data) => {
+            dispatch({ type: 'FETCH_STARTED' });
+            dispatch({ type: 'FETCH_SUCCESS', payload: data, localStorage: 'data' });
+          })
+          .catch((error) => {
+            dispatch({ type: 'FETCH_ERROR', payload: error.message })
+          })
+      }
+    }
+
+    const state = store.getState().reducer;
+    if(state.data === null) {
+      store.dispatch(fetchUrl('https://dogsapi.origamid.dev/json/api/photo'));
+    }
+
+  </script>
+</body>
+</html>
