@@ -140,3 +140,4 @@ SELECT
   last_name,
   DATEDIFF(NOW(), hire_date) AS `days_worked`
 FROM hr.employees;
+
