@@ -56,3 +56,4 @@ FROM Pixar.Movies AS m
 INNER JOIN Pixar.BoxOffice AS b
 ON m.id = b.movie_id
 WHERE b.international_sales > 500000000 AND m.length_minutes > 110;
+
