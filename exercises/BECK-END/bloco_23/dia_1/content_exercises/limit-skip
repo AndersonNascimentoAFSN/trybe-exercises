@@ -1,0 +1,11 @@
+// Limitando o número de documentos retornados
+use('test');
+db.bios.find({}).limit(2).pretty();
+
+// "Pulando" documentos
+use('test');
+db.bios.find().skip(2);
+
+
+use('test');
+db.bios.find().limit(5).skip(2);

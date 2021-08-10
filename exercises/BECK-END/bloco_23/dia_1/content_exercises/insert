@@ -1,0 +1,11 @@
+// Criar um banco de dados:
+use('veiculos');
+db;
+// Inserir dados
+db.carros.insertOne({ nome: 'Fusca', preco: 2000 });
+db.carros.insertOne({ nome: 'Camaro', preco: 250000});
+db.carros.find();
+
+use('sample');
+db.products.insertOne({ productName: 'Caixa', price: 20});
+db.products.find();

@@ -1,0 +1,48 @@
+// Inserir vários documentos
+use('veiculos');
+db.carros.insertMany([
+  {
+    '_id': 1,
+    'nome': 'Gol',
+    'preco': 15000,
+    'portas': 4,
+    'status': 'usado'
+  },
+  {
+    '_id': 2,
+    'nome': 'Onix',
+    'preco': 25000,
+    'portas': 4,
+    'status': 'semi-novo'
+  },
+    {
+    '_id': 3,
+    'nome': 'Gol',
+    'preco':20000,
+    'portas': 4,
+    'status': 'novo'
+  }
+], {ordered: false});
+
+db.carros.find({});
+
+use('sample');
+db.products.insertMany([
+  {
+    'productName': 'Lapis',
+    'stock': 10,
+    'price': 20,
+    'status': 'A'
+  },
+  {
+    'productName': 'Tesoura',
+    'price': 5,
+    'status': 'B'
+  },
+  {
+    'productName': 'Borracha',
+    'price': 15,
+    'status': 'A'
+  }
+]);
+db.products.find({});

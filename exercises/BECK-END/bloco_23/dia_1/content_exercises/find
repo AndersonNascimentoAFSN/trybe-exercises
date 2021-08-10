@@ -1,0 +1,72 @@
+use('movies');
+db.movies.insertOne(
+    {
+        "title" : "Forrest Gump",
+        "category" : [ "drama", "romance" ],
+        "imdb_rating" : 8.8,
+        "filming_locations" : [
+            { "city" : "Savannah", "state" : "GA", "country" : "USA" },
+            { "city" : "Monument Valley", "state" : "UT", "country" : "USA" },
+            { "city" : "Los Anegeles", "state" : "CA", "country" : "USA" }
+        ],
+        "box_office" : {
+            "gross" : 557, "opening_weekend" : 24, "budget" : 55
+        }
+    }
+)
+
+use('movies');
+db.movies.findOne(
+    { "title" : "Forrest Gump" },
+    { "title" : 1, "imdb_rating" : 1, '_id': 0 }
+)
+
+use('movies');
+db.movies.count();
+
+
+// tipos de comparações find
+
+/* 
+  https://docs.mongodb.com/manual/reference/operator/query-comparison/
+
+  $eq - Corresponde a valores que são iguais a um valor especificado.
+  $gt - Corresponde a valores maiores que um valor especificado.
+  $gte - Corresponde a valores maiores ou iguais a um valor especificado.
+  $in - Corresponde a qualquer um dos valores especificados em uma matriz.
+  $lt - Corresponde a valores inferiores a um valor especificado.
+  $lte - Corresponde a valores que são menores ou iguais a um valor especificado.
+  $ne - Corresponde a todos os valores que não são iguais a um valor especificado.
+  $nin - Não corresponde a nenhum dos valores especificados em uma matriz. 
+*/
+
+use('market');
+db.fruits.insertMany([
+  { "name": "apples", "qty": 5 },
+  { "name": "bananas", "qty": 7 },
+  { "name": "grape", "qty": 3 },
+  { "name": "oranges", "qty": { "in stock": 8, "ordered": 12 } },
+  { "name": "avocados", "qty": "fourteen" }
+]);
+
+use('market');
+db.fruits.find( { qty: { $gt: 4}}, {'_id': 0});
+
+// Utilizando find() - O método find() , quando utilizado sem parâmetros, retorna todos os documentos da coleção juntamente com todos os seus campos. Por exemplo, a operação abaixo retorna todos os documentos da coleção bios;
+
+use('test');
+db.bios.find();
+
+// Selecionando documentos com critérios de busca
+
+use('test');
+// db.bios.find({ _id: 5 });
+db.bios.find({ _id: { $eq: 5 } });
+
+use('test');
+db.bios.find( { "name.last": "Hopper" } );
+
+
+// Projetando somente os atributos requeridos:
+use('test');
+db.bios.find({}, {name: 1, _id: false});
