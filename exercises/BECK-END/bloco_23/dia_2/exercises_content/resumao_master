@@ -1,0 +1,22 @@
+use('aula-filter-operators');
+db.filmes.find().count();
+
+//
+use('aula-filter-operators');
+db.filmes.findOne();
+
+//
+use('aula-filter-operators');
+db.filmes.find({ ano: {$lt: 1990}});
+
+// 
+use('aula-filter-operators');
+db.filmes.count({ano: {$lt: 1990}});
+
+//
+use('aula-filter-operators');
+db.filmes.count({ano: {$lte: 2002}});
+
+//
+use('aula-filter-operators');
+db.filmes.count({ano: {$gt: 2015}});

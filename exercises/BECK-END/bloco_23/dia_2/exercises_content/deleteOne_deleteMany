@@ -1,0 +1,30 @@
+/* 
+  Removendo documentos
+
+  Para remover documentos de uma coleção temos dois métodos que são utilizados para níveis de remoção diferentes: o deleteOne() e o deleteMany() . Os dois métodos aceitam um documento como parâmetro, que pode conter um filtro simples ou até mesmo um conjunto de expressões para atender aos critérios de seleção. 
+*/
+use('business');
+db.restaurants.find({});
+
+
+// deleteOne()
+use('business');
+db.restaurants.deleteOne({borough: 'Bronx'});
+
+// deleteMany()
+use('business');
+db.restaurants.deleteMany({rating: 10});
+
+
+/*
+  Vamos praticar!
+  Faça os desafios 1 e 2 abaixo, sobre remoção de documentos utilizando a coleção restaurants criada anteriormente. 
+*/
+
+// 1 - Remova o primeiro restaurante que possua culinária do tipo Ice Cream, Gelato, Yogurt, Ices.
+use('business');
+db.restaurants.deleteOne({cuisine: 'Ice Cream, Gelato, Yogurt, Ices'});
+
+// 2 - Remova todos os restaurantes que possuem culinária do tipo American.
+use('business');
+db.restaurants.deleteMany({cuisine: 'American'});

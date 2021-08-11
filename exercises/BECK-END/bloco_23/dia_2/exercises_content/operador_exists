@@ -1,0 +1,7 @@
+// Operador $exists
+
+use('business');
+db.restaurants.find({ rating: { $exists: true, $nin: [5, 3, 2]}});
+
+use('business');
+db.restaurants.find({ rating: { $exists: false }});

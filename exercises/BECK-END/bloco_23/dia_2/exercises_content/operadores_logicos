@@ -1,0 +1,43 @@
+/* Operadores Lógicos
+Assim como os operadores de comparação, os operadores lógicos também podem ser utilizados nos mesmos métodos para leitura e atualização de documentos do MongoDB . Eles também ajudam a elaborar consultas mais complexas, juntando cláusulas para retornar documentos que satisfaçam os filtros. */
+
+// Operador $not
+use('business');
+db.restaurants.count({rating: { $not: {$gte: 8}}});
+
+// Operador $or
+use('business');
+db.restaurants.find({$or: [{rating: { $gte: 4}}, {cuisine: {$eq: 'American'}}] });
+
+// Operador $nor
+use('business');
+db.restaurants.find({$nor: [{rating: {$gte: 4}}, {cuisine: {$eq: 'American'}}]});
+
+// Operador $and
+use('business');
+db.restaurants.find({$and: [{rating: { $gte: 4}}, {cuisine: {$eq: 'American'}}]});
+
+/*
+  Vamos praticar!
+  Faça os desafios de 1 a 5 abaixo, sobre os operadores lógicos utilizando a coleção restaurants criada no tópico anterior. 
+*/
+
+// 1) Selecione e faça a contagem dos restaurantes que não possuem avaliação menor ou igual a 5, essa consulta também deve retornar restaurantes que não possuem o campo avaliação.
+use('business');
+db.restaurants.count({rating: {$not: {$lte: 5}}});
+
+// 2) Selecione e faça a contagem dos restaurantes em que a avaliação seja maior ou igual a 6, ou restaurantes localizados no bairro Brooklyn.
+use('business');
+db.restaurants.count({$or: [{rating: {$gte: 6}}, {borough: 'Brooklyn'}]});
+
+// 3) Selecione e faça a contagem dos restaurantes localizados nos bairros Queens, Staten Island e Brooklyn e possuem avaliação maior que 4.
+use('business');
+db.restaurants.count({$and: [{borough: {$in: ['Queens', 'Staten Island', 'Brooklyn']}}, { rating: {$gt: 4}}]});
+
+// 4) Selecione e faça a contagem dos restaurantes onde nem o campo avaliação seja igual a 1, nem o campo culinária seja do tipo American.
+use('business');
+db.restaurants.count({$and: [{rating: {$ne: 1}}, { cuisine: {$ne: 'American'}}]});
+
+// 5) Selecione e faça a contagem dos resturantes em que a avaliação seja maior que 6 ou menor que 10, E esteja localizado no bairro Brooklyn, OU não possuem culinária do tipo Delicatessen.
+use('business');
+db.restaurants.find({$or: [{$and: [{rating: {$gt: 6, $lt: 10}}, { borough: 'Brooklyn'}]}, {cuisine: {$ne: 'Delicatessen'}}]});
