@@ -1,0 +1,22 @@
+use("class");
+db.movies.insertMany([
+  {
+    title: "Batman",
+    category: ["action", "adventure"],
+    imgRating: 7.6,
+    budget: 35
+  },
+  {
+    title: "Godzilla",
+    category: ["action", "adventure", "sci-fi"],
+    imgRating: 6.6
+  },
+  {
+    title: "Home Alone",
+    category: ["family", "comedy"],
+    imgRating: 7.4
+  }
+]);
+
+use("class");
+db.movies.count({});
