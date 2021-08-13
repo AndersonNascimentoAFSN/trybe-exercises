@@ -1,0 +1,29 @@
+use("lanches");
+db.lanche.insertOne({
+  _id: 1,
+  nome: "Big-Mac",
+  qtd: 38974,
+  menu: true,
+  combo: ["lanche", "bebida", "batata"]
+});
+
+use('lanches');
+db.lanche.find({});
+
+use('lanches');
+db.lanche.update(
+  {_id: 1},
+  {$set: { qtd: 26789}}
+);
+
+use('lanches');
+db.lanche.find({});
+
+use('lanches');
+db.lanche.update(
+  { _id: 1 },
+  {$set: { "combo.0": 'coca-cola'}}
+)
+
+use('lanches');
+db.lanche.find({});

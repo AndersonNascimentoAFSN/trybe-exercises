@@ -1,0 +1,10 @@
+// Alterando um único documento
+
+use('conteudo_trybe');
+db.inventory.updateOne(
+  { item: "paper" },
+  { $set: { "size.uom": "cm", status: "P"} }
+);
+
+use('conteudo_trybe');
+db.inventory.find({});

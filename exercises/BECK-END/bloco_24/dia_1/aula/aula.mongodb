@@ -1,0 +1,25 @@
+use('loja');
+db.produto.insertOne(
+  {
+    _id: new ObjectId(),
+    sku: "abc123",
+    quantity: 250,
+    instock: true,
+    details: { model: "14Q2", make: "xyz"},
+    tags: ["apparel", "clothing"]
+  }
+);
+
+use('loja');
+db.produto.updateOne(
+  { sku: "abc12" },
+  { $set: { 
+    "details.xzy": "123"
+  }},
+  { upsert: true }
+);
+
+use('loja');
+db.produto.find({});
+
+
