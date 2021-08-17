@@ -1,0 +1,74 @@
+// Operador $elemMatch
+
+/*
+  O operador $elemMatch seleciona os documentos que contêm um campo do tipo array com pelo menos um elemento que satisfaça todos os critérios de seleção especificados. Ou seja, com esse operador você pode especificar várias queries para um mesmo array.
+*/
+use("trybe-exercises");
+db.scores.drop();
+
+use("trybe-exercises");
+db.scores.insertMany([  
+  {
+    _id: 1,
+    results: [82, 85, 88],
+  },
+  {
+    _id: 2,
+    results: [75, 88, 89],
+  },
+]);
+
+use("trybe-exercises");
+db.scores.find({});
+
+use("trybe-exercises");
+db.scores.find(
+  { results: { $elemMatch: { $gte: 80, $lt: 85 } } }
+);
+
+use("trybe-exercises");
+db.survey.insertMany([
+  {
+    _id: 1,
+    results: [
+      { product: "abc", score: 10 },
+      { product: "xyz", score: 5 }
+    ]
+  },
+  {
+    _id: 2,
+    results: [
+      { product: "abc", score: 8 },
+      { product: "xyz", score: 7 }
+    ]
+  },
+  {
+    _id: 3,
+    results: [
+      { product: "abc", score: 7 },
+      { product: "xyz", score: 8 }
+    ]
+  }
+]);
+
+use("trybe-exercises");
+db.survey.find(
+  { results: { $elemMatch: {product: "xyz", score: { $gte: 8 } } } }
+);
+
+// Diferença entre $elementMatch e $and
+
+use("trybe-exercises");
+db.survey.find(
+  { "results.product": "xyz" }
+);
+
+use("trybe-exercises");
+db.survey.find(
+  { 
+  "results.product": "xyz",
+   "results.score": { 
+      $gte: 8
+    }
+  }
+);
