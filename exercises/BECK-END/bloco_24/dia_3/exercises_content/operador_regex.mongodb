@@ -1,0 +1,27 @@
+// Operador $regex
+
+/*
+  O operador $regex fornece os "poderes" das expressões regulares ( regular expressions ) para seleção de strings. MongoDB utiliza expressões regulares compatíveis com Perl ( PCRE ), versão 8.42, e com suporte a UTF-8.
+ */
+
+use("trybe-exercises");
+db.products.drop();
+
+use("trybe-exercises");
+db.products.insertMany([
+  { _id: 100, sku: "abc123", description: "Single line description." },
+  { _id: 101, sku: "abc789", description: "First line\nSecond line" },
+  { _id: 102, sku: "xyz456", description: "Many spaces before     line" },
+  { _id: 103, sku: "xyz789", description: "Multiple\nline description" }
+]);
+
+use("trybe-exercises");
+db.products.find(
+  { sku: { $regex: /789$/gi } }
+);
+
+// Existe diferença entre fazer uma consulta com e sem regex?
+use("trybe-exercises");
+db.products.find(
+  { sku: /789$/gi }
+);
