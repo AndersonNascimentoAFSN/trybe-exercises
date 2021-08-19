@@ -1,9 +1,4 @@
 {"_id":{"$oid":"5e7bc243b642fc6050badb13"},"clienteId":1,"nome":"DR. LEVI DA COSTA","dataNascimento":{"$date":{"$numberLong":"-162168976000"}},"sexo":"FEMININO","endereco":{"logradouro":"PARQUE DE MENDES","numero":"81","bairro":"LORENA","cidade":"NUNES","uf":"AC","cep":"02328221"}}
-
-Error: Parse error on line 1:
-...,"cep":"02328221"}}{"_id":{"$oid":"5e7b
-----------------------^
-Expecting 'EOF', '}', ',', ']'
 {"_id":{"$oid":"5e7bc243b642fc6050badb14"},"clienteId":2,"nome":"SOPHIE PINTO","dataNascimento":{"$date":"1999-09-19T12:01:10Z"},"sexo":"MASCULINO","endereco":{"logradouro":"ALAMEDA LUIZ MIGUEL NOVAES","numero":"62","bairro":"PINDURA SAIA","cidade":"FERREIRA","uf":"AL","cep":"97749-131"}}
 {"_id":{"$oid":"5e7bc243b642fc6050badb15"},"clienteId":3,"nome":"ANA LAURA CASTRO","dataNascimento":{"$date":"1981-09-24T03:30:42Z"},"sexo":"FEMININO","endereco":{"logradouro":"CONDOMÍNIO DA LUZ","numero":"31","bairro":"BACURAU","cidade":"SANTOS DE JESUS","uf":"MT","cep":"39685-319"}}
 {"_id":{"$oid":"5e7bc243b642fc6050badb16"},"clienteId":4,"nome":"HEITOR FERREIRA","dataNascimento":{"$date":{"$numberLong":"-79575817000"}},"sexo":"MASCULINO","endereco":{"logradouro":"CONDOMÍNIO FARIAS","numero":"5","bairro":"SÃO LUIZ","cidade":"MORAES DA MATA","uf":"RO","cep":"25876-409"}}
