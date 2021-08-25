@@ -8,3 +8,15 @@ const factorial = (number) => {
 }
 
 console.log(`O fatorial do número ${number} é ${factorial(number)}`);
+
+function fac(num) {
+  if(num <= 0 ) return 1;
+  return fac(num - 1) * num;
+}
+console.log(fac(2));
+
+// 5
+// 4
+// 3
+// 2
+// 1
