@@ -31,6 +31,4 @@ const printClassificationImc = (imcPerson) => {
 
 const classificationImcPerson = printClassificationImc(imcPerson);
 
-
-
 console.log(`Seu IMC é: ${imcPerson}. Você está na classificação: ${classificationImcPerson}`);
