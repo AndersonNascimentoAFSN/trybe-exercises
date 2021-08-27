@@ -9,7 +9,6 @@
   -Crie uma função que substitua o personagem Nelson Muntz pela personagem Maggie Simpson no arquivo simpsonFamily.json.
 */
 
-
 // const { readFile } = require('fs');
 // const readFilePromise = (filename) => {
 //   return new Promise((resolve, reject) => {
@@ -20,7 +19,8 @@
 //   });
 // }
 
-const { readFile } = require('fs').promises;
+const { readFile, writeFile } = require('fs').promises;
+const { questionInt } = require('readline-sync');
 
 const mockData = [
   {
@@ -33,25 +33,128 @@ const mockData = [
   },
 ];
 
-const formatData = (fileName, id) => {
-  console.log(fileName);
-  return fileName.filter((data) => +data.id === +id)
-    .reduce((_, curr) => `${curr.id} - ${curr.name}`, 0);
+const formatData = (fileName) => {
+  return JSON.parse(fileName).map((person) => {
+    return `${person.id} - ${person.name}`;
+  });
 }
 
-// console.log(format(2));
+const readFilePrintPerson = (fileName) => {
+  return readFile(fileName, 'utf8')
+    .then((data) => {
+      formatData(data).forEach((person) => console.log(person));
+    })
+    .catch((err) => {
+      return `Não foi possível ler o arquivo: ${err.message}`;
+    });
+}
+
+// readFilePrintPerson('./simpsons.json');
 
 const readFilePromise = (fileName, id) => {
   return readFile(fileName, 'utf8')
     .then((data) => {
-      // console.log(data);
-      const format = formatData(data, id);
-      return format;
+      const [person] = formatData(data).filter((person) => {
+        const [personId] = person.split('-');
+        return +personId === id;
+      });
+      if (person) return person;
+      throw new Error('id não encontrado.');
     })
     .catch((err) => {
-      return `Não foi possível ler o arquivo: ${err.message}`;
-    })
+      return `error: ${err.message}`;
+    });
 }
 
-console.log(readFilePromise('./simpsons.json', 1).then((data) => console.log(data)));
+// readFilePromise('./simpsons.json', 1).then((data) => console.log(data));
+
+const readFileJson = () => {
+  return readFile('./simpsons.json', 'utf8')
+    .then((data) => {
+      return JSON.parse(data);
+    })
+    .catch((err) => {
+      console.log(`Error: ${err.message}`);
+    });
+}
+
+const removeCharacters10And6 = async () => {
+  const characters = await readFileJson();
+  const charactersFilter = characters.filter((person) => {
+    return +person.id !== 10 && +person.id !== 6;
+  })
+  return charactersFilter;
+}
+
+const writeFileJson = async () => {
+  const characters = await removeCharacters10And6();
+  writeFile('./simpsons.json', JSON.stringify(characters))
+    .then(() => {
+      console.log('Arquivo escrito com sucesso!');
+    })
+    .catch((err) => {
+      console.error(`Error: ${err.message}`);
+    });
+}
+
+writeFileJson();
+
+const main = () => {
+  let id = 0;
+  const option = questionInt(`
+Escolha uma das opções abaixo:
+  1 - Exibir todos os personagens;
+  2 - Exibir um personagem através de seu id;
+  3 - sair;\n
+  `);
+
+  if(option == 2) {
+    id = questionInt(`Digite o id do personagem: `);
+  }
+
+  selectOption(option, id);
+}
+
+const selectOption = (option, id = 0) => {
+  switch(option) {
+    case 1:
+      readFilePrintPerson('./simpsons.json');
+      break;
+    case 2:
+      readFilePromise('./simpsons.json', id).then((data) => console.log(data));
+      break;
+    case 3:
+      return;
+    default:
+      console.log(`\nOpção inválida`);
+      main();
+  }
+}
+
+
+// main();
+
+
+
+
+
+
+// const formatData = (fileName, id) => {
+//   return JSON.parse(fileName).filter((data) => +data.id === +id)
+//     .reduce((_, curr) => `${curr.id} - ${curr.name}`, 0);
+// }
+
+// const readFilePromise = (fileName, id) => {
+//   return readFile(fileName, 'utf8')
+//     .then((data) => {
+//       return formatData(data, id);
+//     })
+//     .catch((err) => {
+//       return `Não foi possível ler o arquivo: ${err.message}`;
+//     })
+// }
+
+// console.log(readFilePromise('./simpsons.json', 1)
+//   .then((data) => console.log(`data: ${data}`))
+// );
 
