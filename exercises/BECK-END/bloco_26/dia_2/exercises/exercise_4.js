@@ -68,27 +68,20 @@ const readFilePromise = (fileName, id) => {
 
 // readFilePromise('./simpsons.json', 1).then((data) => console.log(data));
 
-const readFileJson = () => {
-  return readFile('./simpsons.json', 'utf8')
+const readContentFile = (path) => {
+  return readFile(path, 'utf8')
     .then((data) => {
+      console.log('Arquivo lido com sucesso!');
       return JSON.parse(data);
     })
     .catch((err) => {
       console.log(`Error: ${err.message}`);
+      return null;
     });
 }
 
-const removeCharacters10And6 = async () => {
-  const characters = await readFileJson();
-  const charactersFilter = characters.filter((person) => {
-    return +person.id !== 10 && +person.id !== 6;
-  })
-  return charactersFilter;
-}
-
-const writeFileJson = async () => {
-  const characters = await removeCharacters10And6();
-  writeFile('./simpsons.json', JSON.stringify(characters))
+const writeContentFile = (path, content) => {
+  writeFile(path, JSON.stringify(content))
     .then(() => {
       console.log('Arquivo escrito com sucesso!');
     })
@@ -97,7 +90,54 @@ const writeFileJson = async () => {
     });
 }
 
-writeFileJson();
+// writeFileJson();
+
+const removeCharacters10And6 = async () => {
+  const characters = await readContentFile('./simpsons.json');
+  const charactersFilter = characters.filter((person) => {
+    return +person.id !== 10 && +person.id !== 6;
+  });
+  console.log('Personagens removidos com sucesso!');
+  return charactersFilter;
+};
+
+const characters1and4 = async (path, newPath)  => {
+  const characters = await readContentFile(path);
+  const charactersFiltered = characters.filter((character) => character.id > 0 && character.id <= 4);
+  writeContentFile(newPath, charactersFiltered);
+};
+
+// characters1and4('./simpsons.json');
+
+const addCharacter = async (path, newCharacter) => {
+  const characters = await readContentFile(path);
+  
+  if(newCharacter.id !== characters[characters.length - 1].id) {
+    characters.push(newCharacter);
+    writeContentFile(path, characters);
+  } else {
+    console.log('Error, este id já existe!');
+  }
+}
+
+// addCharacter('./simpsonFamily.json', { id: '5', name: 'Nelson Muntz'} );
+
+const replaceCharacter = async (path, replacedCharacter, newCharacter) => {
+  const characters = await readContentFile(path);
+
+  const replacedArray = characters.map((character) => {
+    if(character.name === replacedCharacter) {
+      character.name = newCharacter;
+    };
+    return character;
+  });
+
+  writeContentFile(path, replacedArray);
+
+  console.log(`Personagem "${replacedCharacter}" substituído por: "${newCharacter}"`);
+};
+
+// console.log(replaceCharacter('./simpsonFamily.json', 'Nelson Muntz', 'Maggie Simpson').then((data) => console.log(data)));
 
 const main = () => {
   let id = 0;
@@ -105,7 +145,11 @@ const main = () => {
 Escolha uma das opções abaixo:
   1 - Exibir todos os personagens;
   2 - Exibir um personagem através de seu id;
-  3 - sair;\n
+  3 - Remover os personagens 3 e 6;
+  4 - Criar um novo arquivo contendo os personagens de 1 a 4;
+  5 - Criar o personagem 'Nelson Muntz';
+  6 - Substituir personagens;
+  7 - sair;\n
   `);
 
   if(option == 2) {
@@ -115,7 +159,7 @@ Escolha uma das opções abaixo:
   selectOption(option, id);
 }
 
-const selectOption = (option, id = 0) => {
+const selectOption = async (option, id = 0) => {
   switch(option) {
     case 1:
       readFilePrintPerson('./simpsons.json');
@@ -124,6 +168,19 @@ const selectOption = (option, id = 0) => {
       readFilePromise('./simpsons.json', id).then((data) => console.log(data));
       break;
     case 3:
+      const charactersRemoved = await removeCharacters10And6();
+      writeContentFile('./simpsons.json', charactersRemoved);
+      break;
+    case 4:
+      characters1and4('./simpsons.json', './simpsonFamily.json');
+      break;
+    case 5:
+      addCharacter('./simpsonFamily.json', { id: '5', name: 'Nelson Muntz'} );
+      break;
+    case 6: 
+    replaceCharacter('./simpsonFamily.json', 'Nelson Muntz', 'Maggie Simpson');
+    break;
+    case 7:
       return;
     default:
       console.log(`\nOpção inválida`);
@@ -131,12 +188,7 @@ const selectOption = (option, id = 0) => {
   }
 }
 
-
-// main();
-
-
-
-
+main();
 
 
 // const formatData = (fileName, id) => {
