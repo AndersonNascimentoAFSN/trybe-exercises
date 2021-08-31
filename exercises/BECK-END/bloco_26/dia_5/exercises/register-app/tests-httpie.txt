@@ -1,0 +1,5 @@
+http GET :3001/user/users
+
+http POST :3001/user/register username=Anderson email=anderson@gmail.com password:=124556895
+
+http POST :3001/user/login email=anderson@gmail.com password:=1245
