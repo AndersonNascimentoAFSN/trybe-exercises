@@ -1,0 +1,28 @@
+{
+  "users": {
+    "data": [
+      {
+        "id": "1",
+        "name": "Anderson Nascimento",
+        "email": "anderson@email.com",
+        "phone":"654654564664654",
+        "createdAt": "2021-02-18T16:37:58:979Z"
+      },
+      {
+        "id": "2",
+        "name": "Thyago Nascimento",
+        "email": "thyago@email.com",
+        "phone":"654654564664654",
+        "createdAt": "2021-02-18T16:37:58:979Z"
+      },
+      {
+        "id": "3",
+        "name": "Bruno Nascimento",
+        "email": "bruno@email.com",
+        "phone":"654654564664654",
+        "createdAt": "2021-02-18T16:37:58:979Z"
+      }
+    ]
+  }
+
+}
