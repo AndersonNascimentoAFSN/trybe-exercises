@@ -1,0 +1,28 @@
+{
+  "products": {
+    "data": [
+      {
+        "id": "1",
+        "name": "Iphone 11",
+        "description": "celular de última geração",
+        "amount":"4000.00",
+        "createdAt": "2021-02-18T16:37:58:979Z"
+      },
+      {
+        "id": "2",
+        "name": "Notebook Acer",
+        "description": "notebook de última geração",
+        "amount":"14000.00",
+        "createdAt": "2021-02-18T16:37:58:979Z"
+      },
+      {
+        "id": "3",
+        "name": "Camera Acer",
+        "description": "camera de última geração",
+        "amount":"1000.00",
+        "createdAt": "2021-02-18T16:37:58:979Z"
+      }
+    ]
+  }
+
+}
