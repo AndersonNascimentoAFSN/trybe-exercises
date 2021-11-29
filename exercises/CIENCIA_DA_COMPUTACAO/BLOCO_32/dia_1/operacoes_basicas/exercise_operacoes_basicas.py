@@ -30,7 +30,8 @@ qtyOfBooks = 60;
 firstTransport = 3.00;
 transport = 0.75;
 taxaDescont = 0.4;
-totalDescont = (totalBookUnit * qtyOfBooks * taxaDescont)
+totalDescont = (totalBookUnit * qtyOfBooks * taxaDescont);
+totalTransport = firstTransport + (qtyOfBooks - 1 * transport);
 
-totalCost = (totalBookUnit * qtyOfBooks) + firstTransport + (qtyOfBooks - 1 * transport) - totalDescont;
+totalCost = (totalBookUnit * qtyOfBooks) + totalTransport - totalDescont;
 print("Total cost:", totalCost);
