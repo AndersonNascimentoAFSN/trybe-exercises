@@ -1,3 +1,5 @@
+from random import randint
+
 position = ""
 salary = 3500
 
@@ -12,9 +14,11 @@ elif 7500 < salary <= 10500:
 else:
     position = "líder"
 
-print('A posição é:', position);
+print("A posição é:", position)
 
-# Em alguns casos, que não prejudiquem a legibilidade, podemos criar estruturas de mapeamento ( dicts ) para simplificar o aninhamento de condicionais. 
+# Em alguns casos, que não prejudiquem a legibilidade,
+# podemos criar estruturas de mapeamento ( dicts )
+# para simplificar o aninhamento de condicionais.
 key = "id"
 from_to = {
     "id": "identifier",
@@ -24,8 +28,6 @@ from_to = {
 
 print(from_to[key])
 
-
-from random import randint
 
 pantheon_of_arton = [
     {"nome": "Wyanna", "domínio": "Magia"},
@@ -38,8 +40,8 @@ dice_roll = randint(1, 20)
 if dice_roll == 1:
     print("Vixi... Deu ruim!", dice_roll)
 elif 2 <= dice_roll <= 5:
-    print('Ahadarak, porque me atormentas!', dice_roll)
+    print("Ahadarak, porque me atormentas!", dice_roll)
 elif 16 <= dice_roll <= 19:
-    print('Nimb, obrigado pela sorte!', dice_roll)
+    print("Nimb, obrigado pela sorte!", dice_roll)
 else:
-    print('Agora ninguém me segura!', dice_roll)
+    print("Agora ninguém me segura!", dice_roll)
