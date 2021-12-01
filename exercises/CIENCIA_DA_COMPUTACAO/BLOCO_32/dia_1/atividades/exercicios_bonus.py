@@ -59,4 +59,22 @@ print(ArithmeticProgression(300, 3))
 # e retorne o valor a ser pago pelo cliente, sabendo-se que o preço do
 # litro da gasolina é R$ 2,50, e o preço do litro do álcool é R$ 1,90.
 
+value_fuel = {"A": 2.50, "G": 1.90}
+discount_fuel = {
+    "A": {"quantityLitters": 20, "discountRates": [0.03, 0.05]},
+    "G": {"quantityLitters": 20, "discountRates": [0.04, 0.06]},
+}
 
+
+def amountToPay(liters_sold, type_fuel):
+    valueTotal = liters_sold * value_fuel[type_fuel]
+    if liters_sold <= discount_fuel[type_fuel]["quantityLitters"]:
+        return valueTotal - (
+            valueTotal * discount_fuel[type_fuel]["discountRates"][0]
+        )
+    return valueTotal - (
+        valueTotal * discount_fuel[type_fuel]["discountRates"][1]
+    )
+
+
+print(amountToPay(21, "A"))
