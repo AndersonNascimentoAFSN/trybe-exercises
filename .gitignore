@@ -6,3 +6,4 @@
 *books-api/
 *ORM-associations-API/
 *exercise-sequelize-associations/
+*.venv/
