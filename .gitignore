@@ -7,3 +7,4 @@
 *ORM-associations-API/
 *exercise-sequelize-associations/
 *.venv/
+*.env
